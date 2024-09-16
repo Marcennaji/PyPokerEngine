@@ -1,6 +1,4 @@
 import unittest
-from mock import Mock
-from nose.tools import *
 
 class BaseUnitTest(unittest.TestCase):
 

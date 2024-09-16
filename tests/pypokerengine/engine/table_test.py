@@ -1,5 +1,5 @@
 from tests.base_unittest import BaseUnitTest
-from nose.tools import *
+from nose2.tools import *
 
 from pypokerengine.engine.card import Card
 from pypokerengine.engine.pay_info import PayInfo
@@ -43,9 +43,9 @@ class TableTest(BaseUnitTest):
     self.eq(0, len(self.player.action_histories))
     self.eq(PayInfo.PAY_TILL_END, self.player.pay_info.status)
 
-  @raises(ValueError)
   def test_community_card_exceed_size(self):
-    self.table.add_community_card(Card.from_id(1))
+    with self.assertRaises(ValueError):
+      self.table.add_community_card(Card.from_id(1))
 
   def test_shift_dealer_btn_skip(self):
     table = self.__setup_players_with_table()
