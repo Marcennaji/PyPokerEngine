@@ -1,4 +1,4 @@
-class BasePokerPlayer(object):
+class BasePokerPlayer:
   """Base Poker client implementation
 
   To create poker client, you need to override this class and
@@ -73,7 +73,7 @@ class BasePokerPlayer(object):
 
 
   def __build_err_msg(self, msg):
-    return "Your client does not implement [ {0} ] method".format(msg)
+    return f"Your client does not implement [ {msg} ] method"
 
   def __parse_ask_message(self, message):
     hole_card = message["hole_card"]
